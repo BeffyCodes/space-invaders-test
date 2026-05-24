@@ -31,7 +31,6 @@ func on_bullet_hit(_damage: int) -> void:
 	got_shot.emit(10)
 	queue_free()
 
-
 func _on_shoot_timer_timeout() -> void:
 	shoot()
 
@@ -43,7 +42,6 @@ func _on_am_i_in_front_detector_body_exited(body: Node2D) -> void:
 		return;
 	
 	var cooldown = randf_range(COOLDOWN_MIN,COOLDOWN_MAX)
-	
 	
 	var bodies_remaining: Array[Node2D] = %AmIInFrontDetector.get_overlapping_bodies()
 	bodies_remaining.erase(body)

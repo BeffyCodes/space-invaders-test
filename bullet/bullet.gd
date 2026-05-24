@@ -20,7 +20,7 @@ func set_mask(new_mask: int):
 
 func bullet_hit(node_hit: Node2D) -> void:
 	if node_hit.has_method("on_bullet_hit"):
-		queue_free()
+		delete_bullet()
 		
 		var explosion := BULLET_EXPLOSION.instantiate()
 		
@@ -30,9 +30,11 @@ func bullet_hit(node_hit: Node2D) -> void:
 		
 		node_hit.on_bullet_hit(BULLET_DAMAGE)
 
-
 func _on_body_entered(body: Node2D) -> void:
 	bullet_hit(body)
 
 func _on_area_entered(area: Area2D) -> void:
 	bullet_hit(area)
+
+func delete_bullet() -> void:
+	queue_free()
