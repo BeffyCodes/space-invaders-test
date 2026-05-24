@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://5nbbv46kkks7"]
+
+[ext_resource type="Script" uid="uid://wtpdd3sq2dcf" path="res://barrier/barrier.gd" id="1_4fmue"]
+[ext_resource type="PackedScene" uid="uid://ft63l3y70oqa" path="res://barrier/barrier_brick.tscn" id="1_sbuxa"]
+
+[node name="Barrier" type="Area2D" unique_id=759061325]
+collision_mask = 0
+script = ExtResource("1_4fmue")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=886140377]
+polygon = PackedVector2Array(-8, -9, 10, -9, 10, -3, 15, -3, 15, 9, -14, 9, -14, -3, -8, -3)
+
+[node name="BarrierBrick" parent="." unique_id=1341628831 instance=ExtResource("1_sbuxa")]
+position = Vector2(-11, 0)
+
+[node name="BarrierBrick2" parent="." unique_id=1657703981 instance=ExtResource("1_sbuxa")]
+position = Vector2(-6, 0)
+
+[node name="BarrierBrick3" parent="." unique_id=1372451472 instance=ExtResource("1_sbuxa")]
+
+[node name="BarrierBrick4" parent="." unique_id=405358279 instance=ExtResource("1_sbuxa")]
+position = Vector2(6, 0)
+
+[node name="BarrierBrick5" parent="." unique_id=1892724065 instance=ExtResource("1_sbuxa")]
+position = Vector2(12, 0)
+
+[node name="BarrierBrick6" parent="." unique_id=1615428214 instance=ExtResource("1_sbuxa")]
+position = Vector2(-11, 6)
+
+[node name="BarrierBrick7" parent="." unique_id=1690419120 instance=ExtResource("1_sbuxa")]
+position = Vector2(-5, 6)
+
+[node name="BarrierBrick8" parent="." unique_id=2015052829 instance=ExtResource("1_sbuxa")]
+position = Vector2(1, 6)
+
+[node name="BarrierBrick9" parent="." unique_id=1078701131 instance=ExtResource("1_sbuxa")]
+position = Vector2(7, 6)
+
+[node name="BarrierBrick10" parent="." unique_id=1862724157 instance=ExtResource("1_sbuxa")]
+position = Vector2(12, 6)
+
+[node name="BarrierBrick11" parent="." unique_id=1770825724 instance=ExtResource("1_sbuxa")]
+position = Vector2(-5, -6)
+
+[node name="BarrierBrick12" parent="." unique_id=633445835 instance=ExtResource("1_sbuxa")]
+position = Vector2(1, -6)
+
+[node name="BarrierBrick13" parent="." unique_id=109354436 instance=ExtResource("1_sbuxa")]
+position = Vector2(7, -6)

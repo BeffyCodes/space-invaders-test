@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b50q6slyw6hhe"]
+
+[ext_resource type="PackedScene" uid="uid://dkty18kuxr7pn" path="res://player/player.tscn" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://dqki8d1uxbpex" path="res://game/game.gd" id="1_ryrav"]
+[ext_resource type="PackedScene" uid="uid://cfs5ihie750ro" path="res://world/world.tscn" id="2_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://b0tingbg0hnpo" path="res://enemy/smenimies.tscn" id="4_dxrkv"]
+[ext_resource type="PackedScene" uid="uid://c4xw2hb3br13p" path="res://ui/ui.tscn" id="5_dxrkv"]
+
+[node name="Game" type="Node2D" unique_id=1763104969 node_paths=PackedStringArray("ui")]
+script = ExtResource("1_ryrav")
+WorldScene = ExtResource("2_dxrkv")
+PlayerScene = ExtResource("1_80nbo")
+SmenimiesScene = ExtResource("4_dxrkv")
+ui = NodePath("UI")
+
+[node name="UI" parent="." unique_id=1879650834 instance=ExtResource("5_dxrkv")]
+
+[connection signal="start_game" from="UI" to="." method="_on_ui_start_game"]

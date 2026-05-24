@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://d3h30x8il7oqe"]
+
+[ext_resource type="Texture2D" uid="uid://vii3gmxckf1f" path="res://assets/Space Invaders Assets/enemies.png" id="1_2mvqj"]
+[ext_resource type="Script" uid="uid://dayplboeg68li" path="res://enemy/enemy.gd" id="1_ofsxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppra6"]
+size = Vector2(8, 48.5)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ofsxj"]
+b = Vector2(0, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ofsxj"]
+size = Vector2(14, 6)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=1560279862]
+collision_layer = 2
+collision_mask = 0
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_ofsxj")
+
+[node name="EnemySprite" type="Sprite2D" parent="." unique_id=568012549]
+position = Vector2(0, -7)
+scale = Vector2(1.0769231, 1.0769233)
+texture = ExtResource("1_2mvqj")
+
+[node name="ShootingPoint" type="Marker2D" parent="EnemySprite" unique_id=1582480114]
+unique_name_in_owner = true
+position = Vector2(0, 8.3571415)
+scale = Vector2(0.9285714, 0.9285713)
+
+[node name="AmIInFrontDetector" type="Area2D" parent="EnemySprite" unique_id=132990467]
+unique_name_in_owner = true
+position = Vector2(0, 8.3571415)
+scale = Vector2(0.9285714, 0.9285713)
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySprite/AmIInFrontDetector" unique_id=113289272]
+position = Vector2(0, 23.75)
+shape = SubResource("RectangleShape2D_ppra6")
+debug_color = Color(0.94342935, 0.16845238, 0.43428633, 0.41960785)
+
+[node name="DefeatDetector" type="Area2D" parent="EnemySprite" unique_id=193167738]
+position = Vector2(0, 7.4285707)
+collision_layer = 16
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySprite/DefeatDetector" unique_id=1516021185]
+shape = SubResource("SegmentShape2D_ofsxj")
+
+[node name="EnemyHitbox" type="CollisionShape2D" parent="." unique_id=2074345006]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_ofsxj")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=694207137]
+unique_name_in_owner = true
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="EnemySprite/AmIInFrontDetector" to="." method="_on_am_i_in_front_detector_body_entered"]
+[connection signal="body_exited" from="EnemySprite/AmIInFrontDetector" to="." method="_on_am_i_in_front_detector_body_exited"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

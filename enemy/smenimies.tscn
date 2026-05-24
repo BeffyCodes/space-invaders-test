@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://b0tingbg0hnpo"]
+
+[ext_resource type="Script" uid="uid://hfdh11adwiug" path="res://enemy/smenimies.gd" id="1_g234d"]
+[ext_resource type="PackedScene" uid="uid://d3h30x8il7oqe" path="res://enemy/enemy.tscn" id="1_h60dr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g234d"]
+size = Vector2(88, 72)
+
+[node name="Smenimies" type="AnimatableBody2D" unique_id=667928488]
+collision_layer = 8
+collision_mask = 12
+sync_to_physics = false
+script = ExtResource("1_g234d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1541429456]
+position = Vector2(-4, -4)
+shape = SubResource("RectangleShape2D_g234d")
+
+[node name="Enemy" parent="." unique_id=1560279862 instance=ExtResource("1_h60dr")]
+position = Vector2(-40, -24)
+
+[node name="Enemy2" parent="." unique_id=1184953040 instance=ExtResource("1_h60dr")]
+position = Vector2(-16, -24)
+
+[node name="Enemy3" parent="." unique_id=865695452 instance=ExtResource("1_h60dr")]
+position = Vector2(8, -24)
+
+[node name="Enemy4" parent="." unique_id=148796436 instance=ExtResource("1_h60dr")]
+position = Vector2(32, -24)
+
+[node name="Enemy5" parent="." unique_id=792676497 instance=ExtResource("1_h60dr")]
+position = Vector2(-40, 0)
+
+[node name="Enemy6" parent="." unique_id=261380530 instance=ExtResource("1_h60dr")]
+position = Vector2(-16, 0)
+
+[node name="Enemy7" parent="." unique_id=1362488614 instance=ExtResource("1_h60dr")]
+position = Vector2(8, 0)
+
+[node name="Enemy8" parent="." unique_id=1640402167 instance=ExtResource("1_h60dr")]
+position = Vector2(32, 0)
+
+[node name="Enemy9" parent="." unique_id=1489258410 instance=ExtResource("1_h60dr")]
+position = Vector2(-40, 24)
+
+[node name="Enemy10" parent="." unique_id=1522822439 instance=ExtResource("1_h60dr")]
+position = Vector2(-16, 24)
+
+[node name="Enemy11" parent="." unique_id=2027629791 instance=ExtResource("1_h60dr")]
+position = Vector2(8, 24)
+
+[node name="Enemy12" parent="." unique_id=524972743 instance=ExtResource("1_h60dr")]
+position = Vector2(32, 24)
+
+[connection signal="got_shot" from="Enemy" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy2" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy3" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy4" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy5" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy6" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy7" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy8" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy9" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy10" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy11" to="." method="_on_enemy_got_shot"]
+[connection signal="got_shot" from="Enemy12" to="." method="_on_enemy_got_shot"]

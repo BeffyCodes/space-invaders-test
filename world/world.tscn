@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://cfs5ihie750ro"]
+
+[ext_resource type="Script" uid="uid://duo184midyk4e" path="res://game/backboard.gd" id="1_4717r"]
+[ext_resource type="Script" uid="uid://bftmdo75iggxo" path="res://world/world.gd" id="1_h5o24"]
+[ext_resource type="Texture2D" uid="uid://b1gplv7q43fwo" path="res://assets/Space Invaders Assets/Esplosion.png" id="2_h5o24"]
+[ext_resource type="PackedScene" uid="uid://5nbbv46kkks7" path="res://barrier/barrier.tscn" id="3_mmdvd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fn3g3"]
+size = Vector2(655, 17.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc0e3"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jktm"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryrav"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eow3j"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5wjh"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vef74"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hve3p"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mfdv2"]
+atlas = ExtResource("2_h5o24")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sc4t8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jktm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryrav")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eow3j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5wjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vef74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hve3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mfdv2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ai45w"]
+size = Vector2(30, 364)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h5o24"]
+size = Vector2(377, 20)
+
+[node name="World" type="Node2D" unique_id=902184380]
+script = ExtResource("1_h5o24")
+
+[node name="Background" type="ColorRect" parent="." unique_id=752744283]
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 1175.0
+offset_bottom = 669.0
+color = Color(0, 0, 0, 1)
+
+[node name="Backboard" type="Area2D" parent="." unique_id=1046468191]
+position = Vector2(1, -9)
+collision_mask = 0
+script = ExtResource("1_4717r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Backboard" unique_id=1584671079]
+position = Vector2(318, 16.75)
+shape = SubResource("RectangleShape2D_fn3g3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Backboard" unique_id=1144207522]
+top_level = true
+position = Vector2(-119, 96)
+scale = Vector2(0.5625, 0.5625)
+sprite_frames = SubResource("SpriteFrames_sc4t8")
+speed_scale = 2.6
+
+[node name="LeftWall" type="StaticBody2D" parent="." unique_id=2144818014]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall" unique_id=2030824691]
+position = Vector2(91, 178)
+shape = SubResource("RectangleShape2D_ai45w")
+debug_color = Color(0.93467635, 0.17804393, 0.469688, 0.41960785)
+
+[node name="RightWall" type="StaticBody2D" parent="." unique_id=1863623103]
+position = Vector2(494, -1)
+collision_layer = 5
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall" unique_id=377711796]
+position = Vector2(6, 182)
+shape = SubResource("RectangleShape2D_ai45w")
+debug_color = Color(0.93467635, 0.17804393, 0.469688, 0.41960785)
+
+[node name="LeftBarrier" parent="." unique_id=759061325 instance=ExtResource("3_mmdvd")]
+position = Vector2(145, 304)
+
+[node name="MiddleLeftBarrier" parent="." unique_id=1203826167 instance=ExtResource("3_mmdvd")]
+position = Vector2(233, 304)
+
+[node name="MiddleRightBarrier" parent="." unique_id=875526454 instance=ExtResource("3_mmdvd")]
+position = Vector2(387, 304)
+
+[node name="RightBarrier" parent="." unique_id=1945396795 instance=ExtResource("3_mmdvd")]
+position = Vector2(445, 304)
+
+[node name="DefeatZone" type="Area2D" parent="." unique_id=421180346]
+position = Vector2(281.621, 334.807)
+collision_layer = 0
+collision_mask = 16
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DefeatZone" unique_id=1575726581]
+position = Vector2(13.5, 0)
+shape = SubResource("RectangleShape2D_h5o24")
+
+[connection signal="area_entered" from="Backboard" to="Backboard" method="_on_area_entered"]
+[connection signal="got_hit" from="Backboard" to="." method="_on_backboard_got_hit"]
+[connection signal="area_entered" from="DefeatZone" to="." method="_on_defeat_zone_area_entered"]

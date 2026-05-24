@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dkty18kuxr7pn"]
+
+[ext_resource type="Texture2D" uid="uid://2tla5pxpqy5d" path="res://assets/Space Invaders Assets/player.png" id="1_oul6g"]
+[ext_resource type="Script" uid="uid://j4smhnd2h8as" path="res://player/player.gd" id="1_rkbax"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rkbax"]
+size = Vector2(14.498255, 3.7607684)
+
+[node name="Player" type="CharacterBody2D" unique_id=316971781]
+script = ExtResource("1_rkbax")
+
+[node name="Vengeful Spirit" type="Sprite2D" parent="." unique_id=895915056]
+position = Vector2(0, -7)
+scale = Vector2(1.076923, 1.0769237)
+texture = ExtResource("1_oul6g")
+
+[node name="ShootingPoint" type="Marker2D" parent="Vengeful Spirit" unique_id=1236397314]
+unique_name_in_owner = true
+position = Vector2(-2.2737368e-13, -6.175)
+scale = Vector2(1.0833333, 1.0833331)
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=522013967]
+position = Vector2(-0.24587467, -10.892879)
+rotation = -3.1398687
+shape = SubResource("RectangleShape2D_rkbax")
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="ShootCooldown" type="Timer" parent="." unique_id=868938335]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true

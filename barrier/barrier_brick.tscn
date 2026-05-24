@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ft63l3y70oqa"]
+
+[ext_resource type="Script" uid="uid://c42ck57dm2jot" path="res://barrier/barrier_brick.gd" id="1_jevgx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrato"]
+size = Vector2(6, 6)
+
+[node name="BarrierBrick" type="Area2D" unique_id=1415585187]
+collision_mask = 0
+script = ExtResource("1_jevgx")
+
+[node name="BrickHitbox" type="CollisionShape2D" parent="." unique_id=59620629]
+unique_name_in_owner = true
+shape = SubResource("RectangleShape2D_lrato")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1118004938]
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+color = Color(3.8263947e-06, 0.657962, 1.1551381e-06, 1)
